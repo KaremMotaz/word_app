@@ -19,7 +19,7 @@ class WordsGridView extends StatelessWidget {
         ),
         itemCount: words.length,
         itemBuilder: (context, index) {
-          return WordItem(wordModel: words[index]);
+          return WordItem(wordModel: words[index], index: index);
         },
       ),
     );

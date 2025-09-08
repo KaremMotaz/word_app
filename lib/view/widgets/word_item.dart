@@ -5,7 +5,8 @@ import 'package:hive_app/view/styles/color_manager.dart';
 
 class WordItem extends StatelessWidget {
   final WordModel wordModel;
-  const WordItem({super.key, required this.wordModel});
+  const WordItem({super.key, required this.wordModel, required this.index});
+  final int index;
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +16,7 @@ class WordItem extends StatelessWidget {
           context,
           MaterialPageRoute(
             builder: (context) {
-              return WordDetailsView(wordModel: wordModel);
+              return WordDetailsView(wordModel: wordModel, index: index);
             },
           ),
         );

@@ -15,7 +15,11 @@ class WordInfoSection extends StatelessWidget {
       children: [
         LabelWidget(text: wordModel.text, colorCode: wordModel.colorCode),
         SizedBox(height: 8),
-        WordInfoWidget(wordModel: wordModel),
+        WordInfoWidget(
+          colorCode: wordModel.colorCode,
+          isArabic: wordModel.isArabic,
+          text: wordModel.text,
+        ),
       ],
     );
   }

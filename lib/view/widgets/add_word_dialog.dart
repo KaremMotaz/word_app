@@ -23,7 +23,6 @@ class _AddWordDialogState extends State<AddWordDialog> {
       listener: (context, state) {
         if (state is WriteDataSuccessState) {
           Navigator.pop(context);
-          successSnackBar(context: context, message: "Word added successfully");
         } else if (state is WriteDataFailureState) {
           errorSnackBar(context: context, message: state.message);
         }

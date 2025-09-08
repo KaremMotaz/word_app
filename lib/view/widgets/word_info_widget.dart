@@ -1,19 +1,27 @@
 import 'package:flutter/material.dart';
-import 'package:hive_app/models/word_model.dart';
 import 'package:hive_app/view/styles/color_manager.dart';
 
 class WordInfoWidget extends StatelessWidget {
-  const WordInfoWidget({super.key, required this.wordModel, this.onPressed});
+  const WordInfoWidget({
+    super.key,
+    this.onPressed,
+    required this.colorCode,
+    required this.isArabic,
+    required this.text,
+  });
 
-  final WordModel wordModel;
+  final int colorCode;
+  final bool isArabic;
+  final String text;
   final VoidCallback? onPressed;
 
   @override
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.only(left: 15, right: 5, top: 8, bottom: 8),
+      margin: EdgeInsets.only(bottom: 12),
       decoration: BoxDecoration(
-        color: Color(wordModel.colorCode),
+        color: Color(colorCode),
         borderRadius: BorderRadius.circular(20),
       ),
       child: Row(
@@ -22,17 +30,14 @@ class WordInfoWidget extends StatelessWidget {
             radius: 25,
             backgroundColor: ColorManager.black,
             child: Text(
-              wordModel.isArabic ? "ar" : "en",
-              style: TextStyle(
-                color: Color(wordModel.colorCode),
-                fontSize: 20,
-              ),
+              isArabic ? "ar" : "en",
+              style: TextStyle(color: Color(colorCode), fontSize: 20),
             ),
           ),
           SizedBox(width: 10),
           Expanded(
             child: Text(
-              wordModel.text,
+              text,
               style: TextStyle(
                 color: ColorManager.black,
                 fontSize: 20,
@@ -50,5 +55,3 @@ class WordInfoWidget extends StatelessWidget {
     );
   }
 }
-
-
